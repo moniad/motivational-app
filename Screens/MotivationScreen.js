@@ -5,12 +5,16 @@ import { playSound } from "../utils/playSound";
 import cliches from "../cliches";
 
 export default class MotivationScreen extends React.Component {
-
     renderCard = ({ name }) => (
         <TouchableOpacity
-          style={styles.card}
-          key={name}
-         // onPress={() => this.sayittt(name)}
+            style={styles.card}
+            key={name}
+            onPress={ () => Expo.Speech.speak(name, {
+                language: 'en',
+                pitch: 1.3,
+                rate: 0.8,
+                })
+            }
         >
           <Text style={styles.header}>{name}</Text>
         </TouchableOpacity>
@@ -23,7 +27,7 @@ export default class MotivationScreen extends React.Component {
       );
 
     render(){
-        playSound(); 
+        //playSound(); 
         return(
             <View style={styles.container}>
                 <Image source={require('../assets/hearts.gif')}
