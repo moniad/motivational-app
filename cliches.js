@@ -4,5 +4,12 @@ export default[{name: `You're the most amazing person in the world!`},
     {name: 'Go on, GIRL!!'},
     {name: 'Fight for your goals!!'},
     {name: 'You are amazing at coding!!'},
-    {name: 'You are beautiful <3'}
+    {name: 'You are beautiful <3'},
+    {name: 'You were not created to worry'},
+    {name: 'If not now, then when?'},
+    {name: 'You are great!!'},
+    {name: 'Can you hear that? You are on top of the world!'},
+    {name: 'Just do it!'},
+    {name: 'I believe in you!'},
+    {name: 'The passion is the key'}
 ];
