@@ -1,64 +1,21 @@
 import React from 'react';
-import { AppLoading  } from 'expo';
 import { StyleSheet, Text, View, FlatList, TextInput, Alert, Button, TouchableOpacity, Image } from 'react-native';
+//import cliches from './cliches';
+import { StackNavigator } from 'react-navigation';
+import {playSound} from "./utils/playSound";
+import HomeScreen from './Screens/HomeScreen';
+import MotivationScreen from './Screens/MotivationScreen';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      loading: true,
-      titleText: "So you need some motivation...",
-      bodyText: "I'll comfort you!",
-      motivationClicked: false,
-      yes1Clicked: false,
-      yes2Clicked: false
-    };
-  }
-  async componentDidMount(){
-    await Expo.Font.loadAsync({
-      'Pangolin': require('./assets/Pangolin-Regular.ttf'),
-    });
-    this.setState({loading: false});
-  }
+const App=StackNavigator({
+  Home: {screen: HomeScreen},
+  Motivation: {screen: MotivationScreen},
+  //Home: {screen: HomeScreen},
+  //Home: {screen: HomeScreen},
+}, {
+  headerMode: 'none'
+});
 
-  render() {
-    if(this.state.loading) return <AppLoading />
-  
-    if(!this.state.motivationClicked){
-      return (
-        <View style={styles.container}>
-  
-          <Text style={styles.baseText}>
-            <Text style={styles.titleText} onPress={this.onPressTitle}>
-            {'\n'}{'\n'}{this.state.titleText}{'\n'}{'\n'}
-            </Text>
-            <Text numberOfLines={5}>
-              {this.state.bodyText}
-            </Text>
-          </Text>
-          <View style={styles.buttonStart}>
-            <TouchableOpacity
-              style = {styles.buttonStart}
-              onPress={() => this.setState({motivationClicked: true}) }
-            >
-              <Text style={styles.buttonStartText}>MOTIVATE ME</Text> 
-            </TouchableOpacity>
-  
-          </View>
-        </View>
-        );
-    }
-    return(
-      <Image source={require('./assets/hearts.gif')}
-        style={{
-          flex: 1,
-          resizeMode: 'cover',
-        }}>
- 
-      </Image>
-    );
-   }
-}
+export default App;
 
 const styles = StyleSheet.create({
   container: {
@@ -93,14 +50,14 @@ const styles = StyleSheet.create({
   },
 
 
-  buttonYES: {
+  buttonYES1: {
     height: 50,
     paddingHorizontal: 20,
     backgroundColor: '#000',
     borderRadius: 5,
     marginVertical: 10,
   },
-  buttonYESText: {
+  buttonYES1Text: {
     fontWeight: '700',
     fontSize: 20,
     color: '#fff',
