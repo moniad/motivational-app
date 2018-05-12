@@ -27,7 +27,7 @@ export default class MotivationScreen extends React.Component {
       );
 
     render(){
-        //playSound(); 
+        // playSound(); 
         return(
             <View style={styles.container}>
                 <Image source={require('../assets/hearts.gif')}
